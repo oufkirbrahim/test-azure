@@ -4,7 +4,7 @@ import os
 import json
 
 
-def main_func(req: func.HttpRequest) -> func.HttpResponse:
+def main(req: func.HttpRequest) -> func.HttpResponse:
     try:
         test  = os.environ.get('TEST_KEY')
         return func.HttpResponse(json.dumps(test, ensure_ascii=False), mimetype="application/json")
