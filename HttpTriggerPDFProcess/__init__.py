@@ -12,7 +12,7 @@ def save_uploaded_file(req_file):
 
 def main_func(req: func.HttpRequest) -> func.HttpResponse:
     try:
-        test  = os.getenv("TEST_KEY")
+        test  = os.environ.get('TEST_KEY')
         return func.HttpResponse(json.dumps(test, ensure_ascii=False), mimetype="application/json")
 
     except Exception as e:
