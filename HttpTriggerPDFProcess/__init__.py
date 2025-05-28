@@ -1,14 +1,8 @@
 import logging
 import azure.functions as func
-import tempfile
 import os
-from dotenv import load_dotenv
 import json
 
-def save_uploaded_file(req_file):
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
-        tmp.write(req_file.read())
-        return tmp.name
 
 def main_func(req: func.HttpRequest) -> func.HttpResponse:
     try:
