@@ -2,7 +2,6 @@ import logging
 import azure.functions as func
 import tempfile
 import os
-from helper import main, fusionner_donnees
 from dotenv import load_dotenv
 import json
 
