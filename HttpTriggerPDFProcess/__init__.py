@@ -1,14 +1,13 @@
-import logging
 import azure.functions as func
-import os
-import json
-
+import sys
+import pkg_resources
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
-    try:
-        test  = os.environ.get('TEST_KEY')
-        return func.HttpResponse(json.dumps(test, ensure_ascii=False), mimetype="application/json")
-
-    except Exception as e:
-        logging.exception("Erreur lors du traitement.")
-        return func.HttpResponse(str(e), status_code=500)
+    # Lister les packages installés
+    installed_packages = [d.project_name + "==" + d.version 
+                         for d in pkg_resources.working_set]
+    
+    return func.HttpResponse(
+        f"Packages installés:\n" + "\n".join(sorted(installed_packages)),
+        status_code=200
+    )
