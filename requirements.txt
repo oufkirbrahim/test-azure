@@ -1,8 +1,2 @@
 azure-functions
-python-docx
-python-dotenv
-PyMuPDF
-pdf2docx
-openai
 requests
-Pillow
